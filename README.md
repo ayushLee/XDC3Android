@@ -82,7 +82,7 @@ Emits an Approval event indicating the updated allowance.
 ```
   XDC721Client.getInstance().getTokenoinfo(token_address, new TokenDetailCallback() {
                     @Override
-                    public void success(TokenDetailsResponse tokenDetailsResponse)
+                    public void success(Token721DetailCallback tokenDetailsResponse)
                     {
                        // you can proceed as you like after getting succes response.
                     }
@@ -115,21 +115,11 @@ For write methods, we need to create an instance of XDC721Client Client and we n
 ```
 Credentials creds = org.web3j.crypto.Credentials.create(PRIVATE_KEY);
 ```
-transfer(address token, address recipient, uint256 amount) → Moves amount tokens from the caller’s account to recipient. It will return a transaction hash.
+transferfrom(address token, address recipient, uint256 amount) → Transfer ownership of an NFT. It will return a transaction hash.
 ```
-  String trasaction_hash = XDC721Client.getInstance().TransferXdc(private_key, sender_address, receiver_address, new BigInteger(String.valueOf(token_totransfer), Long.parseLong(gasprice), Long.parseLong(gaslimit;
+  String trasaction_hash = XDC721Client.getInstance().transferfrom(tokenAddress, privatekey, tokenid, receiverAddress);
 ```
-approve(address token, address spender, uint256 amount) → Sets amount as the allowance of spender over the caller’s tokens. It will return a transaction hash.
+approve(address token, address spender, uint256 tokenid) → Change or reaffirm the approved address for an NFT. It will return a transaction hash.
 ```
-approved_hash = XDC721Client.getInstance().approveXRC20Token(Spender_address, privatekey, allownce_spender, value_approve);                    
-```
-For increase Allowance and decrease Allowance we need an instance of XRC20 and private key of owner: 
-```
-decreaseAllowance(XifninAccount account, address token, address owner, address spender, uint256 subtractedValue)Automatically decreases the allowance granted to spender by the caller.
-```
-This is an alternative to approve.
-
-Emits an Approval event indicating the updated allowance.
-```
- approved_hash = XDC721Client.getInstance().decreaseAllownce(decrease_owner, decrease_spender, privatekey, decrease_allownce, Spender_address);                     
+approved_hash = XDC721Client.getInstance().approve(tokenAddress, privatekey, tokenid, receiverAddress);                    
 ```
