@@ -67,7 +67,7 @@ approved_hash = XDC20Client.getInstance().approveXRC20Token(Spender_address, pri
 ```
 For increase Allowance and decrease Allowance we need an instance of XRC20 and private key of owner: 
 ```
-decreaseAllowance(XifninAccount account, address token, address owner, address spender, uint256 subtractedValue)Automatically decreases the allowance granted to spender by the caller.
+decreaseAllowance(String privatekey, address token, address owner, address spender, uint256 subtractedValue)Automatically decreases the allowance granted to spender by the caller.
 ```
 This is an alternative to approve.
 
